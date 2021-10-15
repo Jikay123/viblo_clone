@@ -1,0 +1,231 @@
+@import '../../global.scss';
+
+.post__detail {
+
+    .detail__content {
+        position: relative;
+        padding: 1rem;
+        width: 1050px;
+        margin: 0 auto;
+        display: flex;
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .left {
+            width: 20%;
+            position: sticky;
+            top: 80px;
+            overflow-x: hidden;
+            height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            height: 350px;
+            align-items: center;
+
+            .point {
+                height: 90px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+
+                p {
+                    margin-bottom: 0;
+                    // margin: 0 auto;
+                    width: 40px;
+                    font-size: 30px;
+                    text-align: center;
+                    color: #999;
+                }
+
+
+                .MuiSvgIcon-root.sub {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    transform: rotate(90deg);
+                    width: 40px !important;
+                    height: 40px;
+                    color: #999;
+                }
+
+                .MuiSvgIcon-root.plus {
+                    transform: rotate(-90deg);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 40px;
+                    height: 40px;
+                    color: #999;
+                }
+
+                .MuiSvgIcon-root {
+                    &:hover {
+                        color: #333;
+                    }
+
+                    path.active {
+                        color: $mainColor;
+
+                    }
+
+                    path {
+                        cursor: pointer;
+                    }
+                }
+
+
+
+            }
+
+            button.medium {
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                font-size: 20px;
+                margin: 8px 0;
+
+                color: #999;
+
+                &:hover {
+                    color: $mainColor;
+                }
+            }
+
+            .bookmart.active {
+                border: 1px solid #5488c7;
+
+                .MuiSvgIcon-root {
+                    color: #5488c7;
+                }
+            }
+
+            button.small {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                margin: 5px 0;
+
+                .MuiSvgIcon-root {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+
+        }
+
+        .main {
+            width: 80%;
+
+            &__info {
+                display: flex;
+
+                .avatar {
+                    margin: auto;
+                }
+
+
+                &--title {
+                    // display: flex;
+                    flex: 1;
+
+                    .title__first {
+                        display: flex;
+                        justify-content: space-between;
+                        // align-items: center;
+
+                        h3,
+                        p {
+                            margin-bottom: 0;
+                            padding: 5px 10px;
+                            color: #999;
+                        }
+
+                        h3 {
+                            color: $mainColor;
+                            cursor: pointer;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+
+
+                        }
+
+                        button.follow {
+                            border-radius: 5px;
+                        }
+
+                        button.follow.active {
+                            background-color: #5488c7;
+                            color: #fff;
+                        }
+                    }
+
+                    .title__second {
+                        display: flex;
+                        justify-content: space-between;
+
+                        &--left,
+                        &--right {
+                            display: flex;
+
+                            .item {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 5px;
+                                color: #999;
+                                cursor: pointer;
+
+                                &:hover {
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .content {
+                .listTag {
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: 1rem;
+                    border-bottom: 2px dashed #ccc;
+
+                    &__item {
+                        cursor: pointer;
+                        padding: 5px 10px;
+                        border: 1px solid #ccc;
+                        margin-right: 10px;
+                        border-radius: 5px;
+                        background-color: #eee;
+
+                        &:hover {
+                            background-color: #ccc;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

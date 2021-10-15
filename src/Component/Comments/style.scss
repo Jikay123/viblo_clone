@@ -1,0 +1,186 @@
+.comments {
+    width: 1050px;
+    margin: 1rem auto;
+
+    h2 {
+        font-weight: bold;
+    }
+
+    .comment__form {
+        display: flex;
+        border: 1px solid #ccc;
+        padding: 1rem;
+
+        .comment__avatar {
+            margin-right: 10px;
+        }
+
+        #new__comment {
+            width: 100%;
+
+            .input__text {
+                height: 100px;
+                outline: none;
+
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background-color: #ccc;
+                    border-radius: 5px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: #555;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .ant-row {
+            margin-bottom: 0;
+            text-align: right;
+        }
+    }
+
+    .comment__list {
+        .comment__item {
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid #ccc;
+
+            .item__info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &--user {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    h3 {
+                        margin-left: 10px;
+                        margin-bottom: 0;
+
+                        button.respect {
+                            background-color: green;
+                            color: #fff;
+
+                        }
+
+                        button {
+                            border-radius: 5px;
+                            margin-left: 5px;
+                        }
+
+                        button:focus {
+                            border: 1px solid #ccc;
+                        }
+                    }
+                }
+            }
+
+            .item__button {
+                display: flex;
+                align-items: center;
+
+
+                .point {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px;
+                    color: #ccc;
+
+                    .MuiSvgIcon-root {
+                        cursor: pointer;
+                        width: 10px;
+                        height: 10px;
+                        transform: scale(1.5);
+
+                        &:hover {
+                            color: #555;
+                        }
+
+                    }
+
+                    .MuiSvgIcon-root.plus {
+                        margin-top: 7px;
+                        transform: scale(1.5) rotate(90deg);
+
+                        &.active {
+                            color: #3c74b8;
+                        }
+                    }
+
+                    .MuiSvgIcon-root.sub {
+                        margin-bottom: 7px;
+                        transform: scale(1.5) rotate(-90deg);
+
+                        &.active {
+                            color: #3c74b8;
+                        }
+                    }
+
+                    span {
+                        margin: 0 5px;
+                    }
+                }
+
+                .button__reply {
+                    border: none;
+                    padding: 0;
+                    outline: none;
+                    color: #679bdb;
+
+                    &:hover {
+                        text-decoration: underline;
+                        color: #3c74b8;
+                    }
+
+                    &:forcus {
+                        border: none;
+                    }
+
+                    &::after {
+                        content: none;
+                    }
+                }
+            }
+
+            #new__comment {
+                margin-top: 10px;
+                width: 100%;
+
+                .content__reply {
+                    height: 100px;
+                    outline: none;
+
+                    &::-webkit-scrollbar {
+                        width: 5px;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background-color: #ccc;
+                        border-radius: 5px;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: #555;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+            .ant-row {
+                margin-bottom: 0;
+                text-align: right;
+            }
+
+        }
+
+
+    }
+}

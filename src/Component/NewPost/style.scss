@@ -1,0 +1,51 @@
+.form__login {
+    padding: 1rem;
+    width: 1000px;
+    margin: 0 auto;
+
+    .ant-form-item {
+
+        .ant-select-selection-overflow {
+            position: absolute;
+            left: 5px;
+        }
+    }
+
+    .ant-select-selector {
+        padding: 8px 16px;
+    }
+
+    #newpost_content {
+        #editor {
+            height: 60vh;
+
+        }
+
+
+    }
+
+    .jodit-container.jodit.jodit_theme_default.jodit-wysiwyg_mode {
+        height: 55vh !important;
+
+        .jodit-workplace {
+            height: calc(55vh - 77px) !important;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    .ant-form-item {
+        .button__submit {
+            margin: 5px 10px;
+        }
+
+        .button__cancel {
+            color: red;
+        }
+    }
+
+
+}

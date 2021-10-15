@@ -1,0 +1,75 @@
+@import '../../global.scss';
+
+.related {
+    width: 1050px;
+    margin: 0 auto;
+
+    h2.title__first {
+        font-weight: bold;
+        margin-top: 3rem;
+    }
+
+    .tags {
+        display: flex;
+
+        .tags__item {
+            box-shadow: 0px 5px 20px rgba(0, 52, 255, 0.2);
+            padding: 1rem;
+            width: 270px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+
+            h2 {
+                font-size: 18px;
+            }
+
+            p.name {
+                color: $mainColor;
+                cursor: pointer;
+                display: inline-block;
+
+                &:hover {
+                    text-decoration: underline;
+                    color: blue;
+                }
+            }
+
+            .info {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #999;
+                    margin: 0 5px;
+                }
+
+                .icon.point {
+                    position: relative;
+                    width: 40px;
+
+                    .MuiSvgIcon-root {
+                        width: 15px;
+                        height: 15px;
+                    }
+
+                    .MuiSvgIcon-root.up {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: rotate(-90deg);
+                    }
+
+                    .MuiSvgIcon-root.down {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+}
