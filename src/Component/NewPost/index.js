@@ -73,6 +73,7 @@ function NewPost({ type }) {
             point: 0,
             people: [],
             check: [],
+            bookmark: []
         });
         if (type === "posts") {
             if (!userLogin.data.posts) {

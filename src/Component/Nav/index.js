@@ -29,6 +29,7 @@ function Nav() {
 
     useEffect(() => {
         const searchKey = valueSearch.trim();
+
         if (searchKey !== '') {
             setLoading(true)
             setTimeout(() => {
@@ -42,6 +43,7 @@ function Nav() {
             db.collection('posts').onSnapshot(snap => {
                 snap.docs.map(item => {
                     if (item.data().title.toUpperCase().includes(searchKey.toUpperCase()) || item.data().content.toUpperCase().includes(searchKey.toUpperCase())) {
+                        console.log(item.data().title.toUpperCase().includes(searchKey.toUpperCase()))
                         if (postSearch.findIndex(valueFind => valueFind.id === item.id) === -1) {
                             postSearchRef.current.push(
                                 {
@@ -115,8 +117,7 @@ function Nav() {
             })
         }
 
-    }
-        , [valueSearch])
+    }, [valueSearch])
     useEffect(() => {
         const loadData = db.collection('users').onSnapshot((snap) => {
             snap.docs.map((item) => {
@@ -139,6 +140,9 @@ function Nav() {
             history.push('/login');
         }
     }
+    const handleOnMouseDown = (e) => {
+        e.preventDefault();
+    }
     const handleSearchData = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -157,7 +161,9 @@ function Nav() {
 
     }
     const handleMovePage = (link) => {
+        console.log("12")
         history.push(link)
+        setModalSearch(false)
     }
 
     const handleBlurSearch = () => {
@@ -221,7 +227,7 @@ function Nav() {
                 </ul>
             </div>
             <div className="navbar__right" >
-                <FormSearch countPost={countPost} postSearch={postSearch} questionSearch={questionSearch}
+                <FormSearch handleOnMouseDown={handleOnMouseDown} countPost={countPost} postSearch={postSearch} questionSearch={questionSearch}
                     userSearch={userSearch} tagSearch={tagSearch} valueSearch={valueSearch} handleSearchData={handleSearchData}
                     handleOnChangeValueSearch={handleOnChangeValueSearch} loading={loading} ModalSearch={ModalSearch}
                     handleMovePage={handleMovePage} createContent={createContent} truncate={truncate}

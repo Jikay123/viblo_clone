@@ -46,7 +46,7 @@ function ListReply({ user, id, commentID, handleOpenFormReply, clickVote }) {
                             <h3>{item.data.displayName}</h3>
                         </div>
                         <div className="time">
-                            <Moment format="ddd DD/MM/YYYY HH:mm A">{item?.data?.timestamp.seconds * 1000}</Moment>
+                            <Moment format="ddd DD/MM/YYYY HH:mm A">{item?.data?.timestamp?.seconds * 1000}</Moment>
                         </div>
                     </div>
                     <div className="item__content">

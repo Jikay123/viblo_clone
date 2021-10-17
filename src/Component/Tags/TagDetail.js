@@ -18,7 +18,6 @@ function TagDetail() {
     const [listTagsPopular, setListTagsPopular] = useState([]);
 
     const [listPost, setListPost] = useState([]);
-    const listPostRef = useRef([]);
     const [listQuestion, setListQuestion] = useState([]);
     const ValueRef = useRef({
         listPost: [],
@@ -28,7 +27,7 @@ function TagDetail() {
     const history = useHistory();
 
     const randomColor = () => {
-        return color[Math.floor(Math.random() * color.length)];
+        return color[Math.floor(Math.random() * color?.length)];
     }
     useEffect(() => {
         db.collection('tags').orderBy('follow', 'desc').onSnapshot((snap) => {
@@ -52,7 +51,6 @@ function TagDetail() {
     }, [user])
     useEffect(() => {
 
-
         db.collection('tags').doc(id).onSnapshot((snap) => {
             setValueTags({
                 id: snap.id,
@@ -61,6 +59,7 @@ function TagDetail() {
         })
 
     }, [id])
+    console.log(valueTags, "11")
 
     useEffect(() => {
         let countPost = 0, countQuestion = 0;
@@ -102,6 +101,13 @@ function TagDetail() {
             setListPost(ValueRef.current.listPost);
             setListQuestion(ValueRef.current.listQuestion);
         }, 200)
+        return () => {
+            ValueRef.current.listPost = [];
+            ValueRef.current.listQuestion = [];
+            setListPost([]);
+            setListQuestion([]);
+
+        }
     }, [valueTags])
 
     const handleFollow = (tagID, tagData) => {
@@ -190,7 +196,7 @@ function TagDetail() {
                             <p>Câu hỏi</p>
                         </div>
                         <div className="boxInfo__item" style={{ borderRight: "1px solid #ccc" }}>
-                            <h2><strong>{valueTags?.data?.follow.length}</strong></h2>
+                            <h2><strong>{valueTags?.data?.follow?.length}</strong></h2>
                             <p>Người theo dõi</p>
                         </div>
                     </div>
@@ -198,8 +204,8 @@ function TagDetail() {
                     <div className="tags__popular">
                         {listTagsPopular.map((item) => (
                             <div onClick={() => history.push(`/tags/${item.id}`)} className="tags__popular--item" key={item.id}>
-                                <p className="name">{item.data.name}</p>
-                                <p className="follow">{item.data.follow.length}</p>
+                                <p className="name">{item?.data?.name}</p>
+                                <p className="follow">{item?.data?.follow?.length}</p>
                             </div>
                         ))}
                     </div>

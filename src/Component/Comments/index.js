@@ -329,11 +329,12 @@ function Comments({ id, user, typeNews, contentId }) {
                             <div className="item__info--user">
                                 <Avatar src={item.data.photoURL}>{item.data.displayName.charAt(0).toUpperCase()}</Avatar>
                                 <h3>{item.data.displayName}
-                                    {checkUid && (<Button className={item.data.respect && "respect"} onClick={() => handleRespect(item.id, item.data)}>{item.data.respect ? "Đã được chấp nhận" : "Chấp nhận câu trả lời"}</Button>)}
+                                    {(checkUid && (<Button disabled={!item.data.uid === user.uid} className={item.data.respect && "respect"} onClick={() => handleRespect(item.id, item.data)}>{item.data.respect ? "Đã được chấp nhận" : "Chấp nhận câu trả lời"}</Button>))}
                                 </h3>
+                                {/* {<Button style={{ marginLeft: '10px' }} disabled className={item.data.respect && "respect"} onClick={() => handleRespect(item.id, item.data)}>{item.data.respect ? "Đã được chấp nhận" : "Chấp nhận câu trả lời"}</Button>} */}
                             </div>
                             <div className="time">
-                                <Moment format="ddd DD/MM/YYYY HH:mm A">{item?.data?.timestamp.seconds * 1000}</Moment>
+                                <Moment format="ddd DD/MM/YYYY HH:mm A">{item?.data?.timestamp?.seconds * 1000}</Moment>
                             </div>
                         </div>
                         <div className="item__content">

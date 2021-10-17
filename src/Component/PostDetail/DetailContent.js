@@ -9,9 +9,9 @@ function DetailContent({ id, typeNews, content, handleBookmark, handleFollowUser
 
     const [showA, setShowA] = useState(false);
     const [number, setNumber] = useState('');
+    const numberRef = useRef(null);
     const history = useHistory();
 
-    const numberRef = useRef(null);
     useEffect(() => {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
@@ -84,7 +84,6 @@ function DetailContent({ id, typeNews, content, handleBookmark, handleFollowUser
         })
     }
 
-
     return (
         <div className="detail__content">
             <div className="left">
@@ -137,15 +136,15 @@ function DetailContent({ id, typeNews, content, handleBookmark, handleFollowUser
                                         <Star /> <span>0</span>
                                     </div>
                                 </Tooltip>
-                                <Tooltip placement="bottom" title="Người theo dõi: 0">
+                                <Tooltip placement="bottom" title={`Người theo dõi: ${userWriteNews?.data?.fan?.length}`}>
 
                                     <div className="item">
-                                        <PersonAdd /> <span>0</span>
+                                        <PersonAdd /> <span>{userWriteNews?.data?.fan?.length}</span>
                                     </div>
                                 </Tooltip>
-                                <Tooltip placement="bottom" title="Bài viết: 0">
+                                <Tooltip placement="bottom" title={typeNews === "posts" ? (`Bài viết: ${userWriteNews?.data?.posts ? userWriteNews?.data?.posts : 0}`) : (`Câu hỏi: ${userWriteNews?.data?.question ? userWriteNews?.data?.question : 0}`)}>
                                     <div className="item">
-                                        <CreateOutlined /> <span>0</span>
+                                        <CreateOutlined /> <span>{userWriteNews?.data?.posts ? userWriteNews?.data?.posts : 0}</span>
                                     </div>
                                 </Tooltip>
                             </div>
@@ -155,7 +154,7 @@ function DetailContent({ id, typeNews, content, handleBookmark, handleFollowUser
                                         <VisibilityOffOutlined /> <span>0</span>
                                     </div>
                                 </Tooltip>
-                                <Tooltip placement="bottom" title="Lượt bình luận: 0">
+                                <Tooltip placement="bottom" title={`Lượt bình luận: ${!number ? 0 : number}`}>
                                     <div className="item">
                                         <ForumOutlined /> <span>{!number ? 0 : number}</span>
                                     </div>

@@ -6,7 +6,7 @@ import db from '../../Firebase';
 
 function FormSearch({ countPost, postSearch, questionSearch,
     userSearch, tagSearch, valueSearch, handleSearchData, handleOnChangeValueSearch,
-    loading, ModalSearch, handleMovePage, truncate, createContent, handleBlurSearch }) {
+    loading, ModalSearch, handleMovePage, truncate, createContent, handleBlurSearch, handleOnMouseDown }) {
     const color = ["#297FB8", "#FE9E40", "#d6562c", "#1f3a67", "#8D44AD", "#27AE61", "#C1392B"];
 
     const randomColor = () => {
@@ -19,7 +19,6 @@ function FormSearch({ countPost, postSearch, questionSearch,
         db.collection('users').onSnapshot(snap => {
             snap.docs.map(item => {
                 if (item.data()?.tagsFollow?.includes(key)) {
-
                     number++;
                 }
                 return null;
@@ -37,7 +36,6 @@ function FormSearch({ countPost, postSearch, questionSearch,
         db.collection('posts').onSnapshot(snap => {
             snap.docs.map(item => {
                 if (item.data()?.tags?.includes(nametag)) {
-
                     number++;
                 }
                 return null;
@@ -64,7 +62,7 @@ function FormSearch({ countPost, postSearch, questionSearch,
                             {postSearch.length > 0 ? (
                                 <div>
                                     {postSearch?.map(item => (
-                                        <div onClick={() => handleMovePage(`/posts/${item.id}`)} className="postsearch__item" key={item.id}>
+                                        <div onMouseDown={(e) => handleOnMouseDown(e)} onClick={() => handleMovePage(`/posts/${item.id}`)} className="postsearch__item" key={item.id}>
                                             <h3>
                                                 <strong onClick={(e) => handleMovePage(e)}>
                                                     {item.data.title}
@@ -94,7 +92,7 @@ function FormSearch({ countPost, postSearch, questionSearch,
                             {questionSearch.length > 0 ? (
                                 <div>
                                     {questionSearch?.map(item => (
-                                        <div onClick={() => handleMovePage(`questions/${item.id}`)} className="questionSearch__item" key={item.id}>
+                                        <div onMouseDown={(e) => handleOnMouseDown(e)} onClick={() => handleMovePage(`/questions/${item.id}`)} className="questionSearch__item" key={item.id}>
                                             <h3>
                                                 <strong onClick={(e) => handleMovePage(e)}>
                                                     {item.data.title}
@@ -124,7 +122,7 @@ function FormSearch({ countPost, postSearch, questionSearch,
                             {userSearch.length > 0 ? (
                                 <div >
                                     {userSearch?.map(item => (
-                                        <div onClick={() => handleMovePage(`user/${item.data.uid}`)} className="userSearch__item" key={item.id}>
+                                        <div onMouseDown={(e) => handleOnMouseDown(e)} onClick={() => handleMovePage(`/user/${item.data.uid}`)} className="userSearch__item" key={item.id}>
                                             <Avatar src={item.data.photoURL}>{item.data?.displayName.charAt(0).toUpperCase()}</Avatar>
                                             <div className="userSearch__item--info">
                                                 <p>
@@ -158,7 +156,7 @@ function FormSearch({ countPost, postSearch, questionSearch,
                             {tagSearch.length > 0 ? (
                                 <div>
                                     {tagSearch?.map(item => (
-                                        <div onClick={() => handleMovePage(`tags/${item.id}`)} className="tagSearch__item" key={item.id}>
+                                        <div onMouseDown={(e) => handleOnMouseDown(e)} onClick={() => handleMovePage(`/tags/${item.id}`)} className="tagSearch__item" key={item.id}>
                                             <div style={{ background: randomColor() }} className="tagSearch__item--logo">
                                                 {item.data.name}
                                             </div>

@@ -202,7 +202,7 @@ function PostItem({ item, type }) {
                         </p>
                     </Tooltip>
                     <Tooltip title="Copylink" placement="bottom">
-                        <div className="header__link" onClick={() => navigator.clipboard.writeText(`http://localhost:3000/${type}/${item.id}`)}><LinkSharp /></div>
+                        <div className="header__link" onClick={() => navigator.clipboard.writeText(`https://viblo-23154.web.app/${type}/${item.id}`)}><LinkSharp /></div>
                     </Tooltip>
                 </div>
                 <div className="item__content--info">

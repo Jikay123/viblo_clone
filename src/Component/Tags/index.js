@@ -19,7 +19,7 @@ function Tags() {
     const history = useHistory();
 
     const randomColor = () => {
-        return color[Math.floor(Math.random() * color.length)];
+        return color[Math.floor(Math.random() * color?.length)];
     }
 
     useEffect(() => {
@@ -120,7 +120,7 @@ function Tags() {
                             </h3>
                             <p><strong>1</strong> bài viết</p>
                             <p><strong>1</strong> câu hỏi</p>
-                            <p><strong>{item.data.follow.length}</strong> người theo dõi</p>
+                            <p><strong>{item.data?.follow?.length}</strong> người theo dõi</p>
                             <Button onClick={() => handleFollow(item.id, item.data)} className={`info__button ${item.data.follow?.includes(user.uid) ? "follow" : ""} `}><Add /> {item.data.follow?.includes(user.uid) ? "Đang theo dõi" : "Theo dõi"}</Button>
                         </div>
                     </div>
